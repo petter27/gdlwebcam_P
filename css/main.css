@@ -1115,6 +1115,19 @@ div.cboxElement{
 
 
 /*FORMULARIOS*/
+
+
+.mensaje {
+    border: 3px solid green;
+    padding: 10px;
+    text-align: center;
+}
+
+.mensaje.error {
+    border: 3px solid red;
+}
+
+
 form.login{
     display: block;
 }
@@ -1142,6 +1155,26 @@ form.login div.campo{
 form.login label{
     width: 80px;
     display: inline-block;
+}
+
+
+/* Admin */
+
+section.admin nav{
+    padding:20px;
+    background-color: #fe4918;
+    margin-bottom: 30px;
+
+}
+
+section.admin nav a{
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+section.admin nav a:hover{
+    border-bottom: 3px solid white;
 }
 
 /* ==========================================================================
