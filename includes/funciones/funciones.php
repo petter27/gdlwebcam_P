@@ -43,6 +43,36 @@ function eventos_json(&$eventos){
     return json_encode($eventos_json);
 }
 
+function formatear_pedido($articulos){
+    $articulos=json_decode($articulos, true);
+    $pedido="";
+    if(array_key_exists('un_dia', $articulos)){
+        $pedido .= 'Pase(s) un día: ' . $articulos['un_dia'] . "<br/>";
+    }
+    if(array_key_exists('pase_2dias', $articulos)){
+        $pedido .= 'Pase(s) 2 días: ' . $articulos['pase_2dias'] . "<br/>";
+    }
+    if(array_key_exists('pase_completo', $articulos)){
+        $pedido .= 'Pase(s) completo: ' . $articulos['pase_completo'] . "<br/>";
+    }
+    if(array_key_exists('camisas', $articulos)){
+        $pedido .= 'Camisas: ' . $articulos['camisas'] . "<br/>";
+    }
+    if(array_key_exists('etiquetas', $articulos)){
+        $pedido .= 'Etiquetas: ' . $articulos['etiquetas'] . "<br/>";
+    }
+    return $pedido;
+}
+
+function formatear_eventos_a_sql($eventos){
+    $eventos=json_decode($eventos,true);
+    $sql="SELECT nombre_evento FROM eventos WHERE clave='a'";
+    foreach($eventos['eventos'] as $evento){
+        $sql .= " OR clave='{$evento}'";
+    }
+    return $sql;
+}
+
 function usuario_autenticado(){
     if(!revisar_usuario()){
         header("Location:login.php");
