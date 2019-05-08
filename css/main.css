@@ -1166,6 +1166,10 @@ form.invitado textarea{
     border: 1px solid #ccc;
 }
 
+form.invitado input[type="radio"]{
+    width: auto;
+}
+
 form.invitado input#imagen{
     border: none;
 }
